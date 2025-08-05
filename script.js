@@ -17,11 +17,11 @@ function newPhrase() {
 const inutileBtn = document.getElementById('inutile-btn');
 
 const testiInutili = {
-  10: "Sono veramente inutile",
-  20: "Perché insisti?",
-  50: "Sei testarda ho capito",
-  100: "Forse non sono così inutile",
-  150: "Non ce la faccio più BASTA!",
+  5: "Sono veramente inutile",
+  10: "Perché insisti?",
+  25: "Sei testarda ho capito",
+  50: "Forse non sono così inutile",
+  75: "Non ce la faccio più BASTA!",
 };
 
 let inutiliClicks = 0;
@@ -31,7 +31,7 @@ inutileBtn.addEventListener('click', () => {
 
   if (inutiliClicks in testiInutili) {
     inutileBtn.textContent = testiInutili[inutiliClicks];
-  } else if (inutiliClicks === 200) {
+  } else if (inutiliClicks === 100) {
     inutileBtn.textContent = "CIUPPA";
     inutileBtn.disabled = true; // disabilita il bottone dopo il "botto"
   }
@@ -98,6 +98,7 @@ genreSelect.addEventListener('change', () => {
 // Inizializza col genere pop (o quello che vuoi)
 genreSelect.value = 'pop';
 genreSelect.dispatchEvent(new Event('change'));
+
 
 
 
