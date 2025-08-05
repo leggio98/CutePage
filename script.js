@@ -16,11 +16,25 @@ const phrases = [
   "Dovrei dormire dannazione"
 ];
 
+let currentPhraseIndex = 0;
+let switchedToRandom = false;
+
 function newPhrase() {
   const phraseElement = document.getElementById("phrase");
-  const randomIndex = Math.floor(Math.random() * phrases.length);
-  phraseElement.textContent = phrases[randomIndex];
+
+  if (!switchedToRandom) {
+    phraseElement.textContent = phrases[currentPhraseIndex];
+    currentPhraseIndex++;
+
+    if (currentPhraseIndex >= phrases.length) {
+      switchedToRandom = true;
+    }
+  } else {
+    const randomIndex = Math.floor(Math.random() * phrases.length);
+    phraseElement.textContent = phrases[randomIndex];
+  }
 }
+
 
 const inutileBtn = document.getElementById('inutile-btn');
 
@@ -129,6 +143,7 @@ genreSelect.addEventListener('change', () => {
     playTrack(currentTrackIndex);
   }
 });
+
 
 
 
