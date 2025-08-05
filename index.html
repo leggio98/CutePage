@@ -9,23 +9,22 @@
 <body>
   <div class="background"></div>
   <div class="content">
+    <label for="genre-select">🎶 Scegli un genere musicale:</label><br>
+    <select id="genre-select">
+      <option value="pop">Pop</option>
+      <option value="rock">Rock</option>
+      <option value="classica">Classica</option>
+      <option value="quiet">Niente da fare sulla musica due su due</option>
+    </select>
+
+    <audio id="bg-music" controls></audio>
+
     <h1>🌸 Hey... io... pacifico... giuro... 🌸</h1>
     <p id="phrase">Non dirti Esplodi please</p>
     <button onclick="newPhrase()">💌 Fammi un altro sorriso</button>
-    <button id="inutile-btn">Sono inutile</button>
-    <label for="genre-select">Scegli un genere musicale:</label>
-<select id="genre-select">
-  <option value="pop">Pop</option>
-  <option value="rock">Rock</option>
-  <option value="classica">Classica</option>
-  <option value="quiet">Niente da fare sulla musica due su due</option>
-</select>
-<audio id="bg-music"></audio>
+
+    <div class="inutile-container">
+      <button id="inutile-btn">Sono inutile</button>
+    </div>
   </div>
-  <script src="script.js"></script>
-</body>
-</html>
-
-
-
-
+  <script src=
