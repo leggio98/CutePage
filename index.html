@@ -9,14 +9,22 @@
 <body>
   <div class="background"></div>
   <div class="content">
-    <h1>🌸 Ciao, tu. 🌸</h1>
-    <p id="phrase">Sto pensando a te proprio adesso...</p>
+    <h1>🌸 Hey... io... pacifico... giuro... 🌸</h1>
+    <p id="phrase">Non dirti Esplodi please</p>
     <button onclick="newPhrase()">💌 Fammi un altro sorriso</button>
-    <audio id="bg-music" controls loop>
-      <source src="assets/music.mp3" type="audio/mpeg" />
-      Il tuo browser non supporta l'audio.
-    </audio>
+    <button id="inutile-btn">Sono inutile</button>
+    <label for="genre-select">Scegli un genere musicale:</label>
+<select id="genre-select">
+  <option value="pop">Pop</option>
+  <option value="rock">Rock</option>
+  <option value="classica">Classica</option>
+  <option value="quiet">Niente da fare sulla musica due su due</option>
+</select>
+<audio id="bg-music"></audio>
   </div>
   <script src="script.js"></script>
 </body>
 </html>
+
+
+
