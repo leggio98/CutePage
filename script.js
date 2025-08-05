@@ -13,3 +13,26 @@ function newPhrase() {
   const randomIndex = Math.floor(Math.random() * phrases.length);
   phraseElement.textContent = phrases[randomIndex];
 }
+
+const inutileBtn = document.getElementById('inutile-btn');
+
+const testiInutili = {
+  10: "testo1",
+  20: "testo2",
+  50: "testo3",
+  100: "testo4",
+  150: "testo5",
+};
+
+let inutiliClicks = 0;
+
+inutileBtn.addEventListener('click', () => {
+  inutiliClicks++;
+
+  if (inutiliClicks in testiInutili) {
+    inutileBtn.textContent = testiInutili[inutiliClicks];
+  } else if (inutiliClicks === 200) {
+    inutileBtn.textContent = "CIUPPA 💥";
+    inutileBtn.disabled = true; // disabilita il bottone dopo il "botto"
+  }
+});
