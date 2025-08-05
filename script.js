@@ -1,11 +1,11 @@
 const phrases = [
-  "Ehi, fermati un secondo...",
+  "Ehi, fermati un secondo... due... tre... basta direi vai avanti",
   "Scommetto che stai sorridendo già 👀",
-  "Certe persone rendono le giornate più leggere...",
-  "Indovina chi stava pensando a te proprio adesso?",
+  "Certe persone rendono le giornate più leggere... tipo i ladri ",
+  "Indovina chi stava pensando a te proprio adesso? Credo Gandhi",
   "Spoiler: non sei sola a sorridere 💫",
   "Sei una di quelle piccole cose belle che rendono grandi le giornate 💖",
-  "In un mondo di notifiche, tu sei l’unica che vale davvero la pena aprire ☁️"
+  "In un mondo di notifiche, tu sei l’unica che se apro, al 95% mi esce scritto Esplodi"
 ];
 
 function newPhrase() {
@@ -98,5 +98,6 @@ genreSelect.addEventListener('change', () => {
 // Inizializza col genere pop (o quello che vuoi)
 genreSelect.value = 'pop';
 genreSelect.dispatchEvent(new Event('change'));
+
 
 
