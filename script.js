@@ -38,65 +38,90 @@ inutileBtn.addEventListener('click', () => {
 });
 const music = document.getElementById('bg-music');
 const genreSelect = document.getElementById('genre-select');
+const currentTrackDisplay = document.getElementById('current-track');
+const playPauseBtn = document.getElementById('play-pause-btn');
+const nextBtn = document.getElementById('next-btn');
+const prevBtn = document.getElementById('prev-btn');
 
 const playlists = {
-  pop: [
-    'assets/pop1.mp3',
-    'assets/pop2.mp3',
-    'assets/pop3.mp3',
-    // aggiungi qui i tuoi file pop
-  ],
-  rock: [
-    'assets/rock1.mp3',
-    'assets/rock2.mp3',
-    'assets/rock3.mp3',
-    // aggiungi qui i tuoi file rock
-  ],
-  classica: [
-    'assets/classica1.mp3',
-    'assets/classica2.mp3',
-    'assets/classica3.mp3',
-    // aggiungi qui i tuoi file classica
-  ],
+  pop: ['assets/pop1.mp3', 'assets/pop2.mp3', 'assets/pop3.mp3'],
+  rock: ['assets/rock1.mp3', 'assets/rock2.mp3', 'assets/rock3.mp3'],
+  classica: ['assets/classica1.mp3', 'assets/classica2.mp3', 'assets/classica3.mp3'],
   quiet: []
 };
 
 let currentPlaylist = [];
 let currentTrackIndex = 0;
+let isPlaying = false;
+
+function updateTrackDisplay() {
+  if (currentPlaylist.length === 0) {
+    currentTrackDisplay.textContent = 'Nessuna canzone';
+  } else {
+    const trackPath = currentPlaylist[currentTrackIndex];
+    const trackName = trackPath.split('/').pop(); // Es. 'pop1.mp3'
+    currentTrackDisplay.textContent = `🎵 ${trackName}`;
+  }
+}
 
 function playTrack(index) {
   if (currentPlaylist.length === 0) {
     music.pause();
     music.src = "";
+    updateTrackDisplay();
     return;
   }
   music.src = currentPlaylist[index];
   music.play();
+  isPlaying = true;
+  playPauseBtn.textContent = "⏸️";
+  updateTrackDisplay();
 }
 
-music.addEventListener('ended', () => {
-  currentTrackIndex++;
-  if (currentTrackIndex >= currentPlaylist.length) {
-    currentTrackIndex = 0;
+function togglePlayPause() {
+  if (currentPlaylist.length === 0) return;
+
+  if (isPlaying) {
+    music.pause();
+    playPauseBtn.textContent = "▶️";
+  } else {
+    music.play();
+    playPauseBtn.textContent = "⏸️";
   }
+  isPlaying = !isPlaying;
+}
+
+function playNext() {
+  if (currentPlaylist.length === 0) return;
+  currentTrackIndex = (currentTrackIndex + 1) % currentPlaylist.length;
   playTrack(currentTrackIndex);
-});
+}
+
+function playPrev() {
+  if (currentPlaylist.length === 0) return;
+  currentTrackIndex = (currentTrackIndex - 1 + currentPlaylist.length) % currentPlaylist.length;
+  playTrack(currentTrackIndex);
+}
+
+music.addEventListener('ended', playNext);
+playPauseBtn.addEventListener('click', togglePlayPause);
+nextBtn.addEventListener('click', playNext);
+prevBtn.addEventListener('click', playPrev);
 
 genreSelect.addEventListener('change', () => {
   const selectedGenre = genreSelect.value;
   currentPlaylist = playlists[selectedGenre];
   currentTrackIndex = 0;
-
   if (currentPlaylist.length === 0) {
     music.pause();
     music.src = "";
+    isPlaying = false;
+    playPauseBtn.textContent = "▶️";
   } else {
     playTrack(currentTrackIndex);
   }
 });
 
-// Inizializza col genere pop (o quello che vuoi)
-genreSelect.value = 'pop';
-genreSelect.dispatchEvent(new Event('change'));
+
 
 
