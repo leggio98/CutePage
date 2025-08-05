@@ -36,3 +36,66 @@ inutileBtn.addEventListener('click', () => {
     inutileBtn.disabled = true; // disabilita il bottone dopo il "botto"
   }
 });
+const music = document.getElementById('bg-music');
+const genreSelect = document.getElementById('genre-select');
+
+const playlists = {
+  pop: [
+    'assets/pop1.mp3',
+    'assets/pop2.mp3',
+    'assets/pop3.mp3',
+    // aggiungi qui i tuoi file pop
+  ],
+  rock: [
+    'assets/rock1.mp3',
+    'assets/rock2.mp3',
+    'assets/rock3.mp3',
+    // aggiungi qui i tuoi file rock
+  ],
+  classica: [
+    'assets/classica1.mp3',
+    'assets/classica2.mp3',
+    'assets/classica3.mp3',
+    // aggiungi qui i tuoi file classica
+  ],
+  quiet: []
+};
+
+let currentPlaylist = [];
+let currentTrackIndex = 0;
+
+function playTrack(index) {
+  if (currentPlaylist.length === 0) {
+    music.pause();
+    music.src = "";
+    return;
+  }
+  music.src = currentPlaylist[index];
+  music.play();
+}
+
+music.addEventListener('ended', () => {
+  currentTrackIndex++;
+  if (currentTrackIndex >= currentPlaylist.length) {
+    currentTrackIndex = 0;
+  }
+  playTrack(currentTrackIndex);
+});
+
+genreSelect.addEventListener('change', () => {
+  const selectedGenre = genreSelect.value;
+  currentPlaylist = playlists[selectedGenre];
+  currentTrackIndex = 0;
+
+  if (currentPlaylist.length === 0) {
+    music.pause();
+    music.src = "";
+  } else {
+    playTrack(currentTrackIndex);
+  }
+});
+
+// Inizializza col genere pop (o quello che vuoi)
+genreSelect.value = 'pop';
+genreSelect.dispatchEvent(new Event('change'));
+
