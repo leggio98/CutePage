@@ -33,9 +33,10 @@ inutileBtn.addEventListener('click', () => {
     inutileBtn.textContent = testiInutili[inutiliClicks];
   } else if (inutiliClicks === 100) {
     inutileBtn.textContent = "CIUPPA";
-    inutileBtn.disabled = true; // disabilita il bottone dopo il "botto"
+    inutileBtn.disabled = true;
   }
 });
+
 const music = document.getElementById('bg-music');
 const genreSelect = document.getElementById('genre-select');
 
@@ -44,19 +45,16 @@ const playlists = {
     'assets/pop1.mp3',
     'assets/pop2.mp3',
     'assets/pop3.mp3',
-    // aggiungi qui i tuoi file pop
   ],
   rock: [
     'assets/rock1.mp3',
     'assets/rock2.mp3',
     'assets/rock3.mp3',
-    // aggiungi qui i tuoi file rock
   ],
   classica: [
     'assets/classica1.mp3',
     'assets/classica2.mp3',
     'assets/classica3.mp3',
-    // aggiungi qui i tuoi file classica
   ],
   quiet: []
 };
@@ -95,10 +93,5 @@ genreSelect.addEventListener('change', () => {
   }
 });
 
-// Inizializza col genere pop (o quello che vuoi)
 genreSelect.value = 'pop';
 genreSelect.dispatchEvent(new Event('change'));
-
-
-
-
