@@ -1,11 +1,19 @@
 const phrases = [
   "Ehi, fermati un secondo... due... tre... basta direi vai avanti",
-  "Scommetto che stai sorridendo già 👀",
+  "Ne metterei un miliardo di puntini.................... altro che tre",
   "Certe persone rendono le giornate più leggere... tipo i ladri ",
   "Indovina chi stava pensando a te proprio adesso? Credo Gandhi",
-  "Spoiler: non sei sola a sorridere 💫",
-  "Sei una di quelle piccole cose belle che rendono grandi le giornate 💖",
-  "In un mondo di notifiche, tu sei l’unica che se apro, al 95% mi esce scritto Esplodi"
+  "Spoiler: non ti ordinerò una granita così",
+  "In un mondo di notifiche, tu sei l’unica che se apro, al 95% mi esce scritto Esplodi",
+  "Non ho proprio niente di meglio da fare eh",
+  "Occhio alle iniziali dei prossimi 5 messaggi",
+  "Taumaturgo",
+  "Inizio col dirti che era veramente una bella parola taumaturgo",
+  "Zia si ho sbagliato un file audio prendendo il video da YouTube",
+  "Introduco la mia daltonia con questo sfondo verde ma il pc non mi dice così",
+  "Oh finalmente ho finito le 5 iniziali",
+  "Un Old Fashioned grazie, possibilmente senza tirarmi addosso il drink",
+  "Dovrei dormire dannazione"
 ];
 
 function newPhrase() {
@@ -121,6 +129,7 @@ genreSelect.addEventListener('change', () => {
     playTrack(currentTrackIndex);
   }
 });
+
 
 
 
