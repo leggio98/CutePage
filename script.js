@@ -13,7 +13,9 @@ const phrases = [
   "Introduco la mia daltonia con questo sfondo verde ma il pc non mi dice così",
   "Oh finalmente ho finito le 5 iniziali",
   "Un Old Fashioned grazie, possibilmente senza tirarmi addosso il drink",
-  "Dovrei dormire dannazione"
+  "Dovrei dormire dannazione",
+  "Si era una parola stupida con le 5 iniziali",
+  "Ora i messaggi saranno a caso  tra i precedenti, ma fai come vuoi"
 ];
 
 let currentPhraseIndex = 0;
@@ -143,6 +145,7 @@ genreSelect.addEventListener('change', () => {
     playTrack(currentTrackIndex);
   }
 });
+
 
 
 
